@@ -1,0 +1,644 @@
+.profile-wrapper {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.episode-card-wrapper {
+  background-color: #ffffff;
+  color: black;
+  width: fit-content;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+  /* padding-left: 50px; */
+  padding-left: 3%;
+  margin-right: 0;
+  width: 98.5vw;
+}
+
+.history-container {
+  flex-direction: column;
+}
+
+.info-card {
+  width: 76%;
+}
+
+.badge-info-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  padding-left: 10px;
+  margin-right: -15px;
+}
+
+.watched-check-img {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+}
+
+.h3-until-episode-profile {
+  text-align: center;
+  font-weight: 500;
+  color: rgb(160, 160, 169);
+  width: 50px;
+}
+
+.profile-cover-div {
+  height: 500px;
+  width: 100vw;
+  max-width: 100%;
+  position: relative;
+  margin-top: 70px;
+}
+
+.btn-change-cover {
+  position: absolute;
+  left: 0.5vw;
+  bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: white;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 5;
+  border: 1px solid grey;
+  color: #000000;
+}
+
+.btn-change-cover:hover {
+  background-color: rgb(155, 151, 151);
+  color: #ffffff;
+}
+
+.profile-cover {
+  width: 100vw;
+  max-width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.user-details-container {
+  width: 100vw;
+  max-width: 100%;
+  position: relative;
+}
+
+.user-div-container {
+  position: relative;
+  bottom: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.user-img {
+  background-color: white;
+  border-radius: 180px;
+  width: 180px;
+  height: 180px;
+}
+
+.details-account {
+  width: 100vw;
+  max-width: 100%;
+  background-color: white;
+  position: absolute;
+  top: -30px;
+  height: 80px;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  gap: 25vw;
+}
+
+.section-1 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: end;
+  gap: 100px;
+  width: 38vw;
+}
+
+.section-2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: start;
+  gap: 100px;
+}
+
+.statistics-info-container {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 60px;
+}
+
+.stats-number {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: -10px;
+  font-weight: 600;
+}
+
+.stats-subtitle {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.stats-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+
+.info-div-profile {
+  padding-right: 6%;
+  padding-left: 6%;
+  margin-top: 25px;
+  text-align: center;
+  color: black;
+}
+
+.info-div-profile:last-child {
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-left: 10vw;
+}
+
+.info-div-profile:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-right: 10vw;
+}
+
+.tvtime-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.tvtime-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.noShows-div {
+  height: 100px;
+  padding-top: 30px;
+  padding-left: 4vw;
+  margin-bottom: 50px;
+  font-size: 1.1rem;
+}
+
+.profile-episode-name {
+  width: 400px;
+}
+
+.spinner-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  margin-bottom: 250px;
+}
+
+.profile-show-img-div {
+  position: relative;
+}
+
+.runtime-release {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  background-color: #e7e7e7;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.premiering {
+  right: auto;
+  left: 10px;
+}
+
+.show-no-img {
+  width: 500px;
+  height: 281px;
+}
+
+.history-card-wrapper {
+  background-color: #ffffff;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0;
+  overflow: hidden;
+  width: 70vw;
+}
+
+.history-profile-show-img-div {
+  position: relative;
+  margin-bottom: -6px;
+}
+
+.history-badge-info-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  padding-left: 10px;
+  margin-right: -15px;
+  width: 150%;
+}
+
+.history-card-img {
+  width: 250px;
+}
+
+.history-info-card {
+  width: 76%;
+}
+
+.divider {
+  display: flex;
+}
+
+.divider:before,
+.divider:after {
+  content: "";
+  flex: 1;
+}
+
+.line {
+  margin-left: 4vw;
+  margin-right: 5vw;
+  margin-bottom: 50px;
+}
+
+.glow:before {
+  background: linear-gradient(to right, blue, hotpink);
+  height: 6px;
+  filter: blur(5px);
+  border-radius: 5px;
+}
+
+.glow:after {
+  background: linear-gradient(to left, blue, hotpink);
+  height: 6px;
+  filter: blur(5px);
+  border-radius: 5px;
+}
+
+.title-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 2.8vw;
+  margin-right: 4.2vw;
+}
+
+.profile-section-title {
+  border: 10px solid;
+  border-image-slice: 0 0 0 1;
+  border-width: 8px;
+  border-image-source: linear-gradient(to bottom, #743ad5, #d53a9d);
+  padding-left: 10px;
+}
+
+.uptodate-settings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.setting-icon {
+  width: 25px;
+  cursor: pointer;
+}
+
+.statistic-numbers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-title {
+  margin-bottom: -20px;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.stat-num {
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+.upToDate-filters {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  margin-left: 3vw;
+  margin-top: -20px;
+}
+
+.filter-title {
+  cursor: pointer;
+  background-color: #e7e7e7;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 5px;
+  color: black;
+  border: 2px solid transparent;
+}
+
+.filter-title.active {
+  background-color: black;
+
+  color: white;
+
+  border: 2px solid white;
+}
+
+.top-info-div-profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.coverSelection-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.coverImg-selection-div {
+  position: fixed;
+  top: 95px;
+  height: 88vh;
+  background-color: white;
+  color: black;
+  width: 95vw;
+  z-index: 20;
+  border-radius: 10px;
+}
+
+.cover-images-div::-webkit-scrollbar {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.cover-images-div::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+}
+
+.cover-images-div::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background: black;
+}
+
+.h2-selection {
+  padding-left: 3vw;
+}
+
+.cover-images-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  position: relative;
+  height: 80%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.cover-img-preview {
+  cursor: pointer;
+  max-width: 500px;
+  height: 281px;
+  object-fit: cover;
+}
+
+.cover-img-preview:active {
+  border: 4px solid black;
+}
+
+.buttons-cover-selection {
+  position: absolute;
+  bottom: 0px;
+  background-color: #000000;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 10px;
+}
+
+.cover-selection-btn {
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 10px;
+  width: 100px;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+
+.save-btn:hover {
+  background-color: #70c570;
+  border: 1px solid white;
+  color: #ffffff;
+}
+
+.cancel-btn:hover {
+  background-color: #ce5c5c;
+  border: 1px solid white;
+  color: #ffffff;
+}
+
+@media all and (max-width: 980px) {
+  .history-card-wrapper {
+    width: 90vw;
+  }
+}
+
+@media all and (max-width: 740px) {
+  .history-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .history-profile-show-img-div {
+    width: 40%;
+  }
+}
+
+@media all and (max-width: 620px) {
+  .profile-episode-name-history {
+    width: 150px;
+    height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .history-card-wrapper {
+    width: 80%;
+  }
+}
+
+@media all and (max-width: 944px) {
+  .section-1 {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0px;
+  }
+
+  .section-2 {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0px;
+  }
+
+  .statistic-numbers {
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: -20px;
+    margin-top: -20px;
+  }
+
+  .stat-title {
+    font-size: 1rem;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-left: 5px;
+    order: 2;
+    white-space: nowrap;
+  }
+
+  .stat-num {
+    font-size: 1.4rem;
+    padding-left: 12px;
+    order: 1;
+  }
+
+  .user-img {
+    border-radius: 120px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .top-info-div-profile {
+    overflow-x: scroll;
+    justify-content: flex-start;
+  }
+
+  .info-div-profile {
+    width: fit-content;
+  }
+}
+
+@media all and (max-width: 665px) {
+  .history-card-wrapper {
+    width: 90vw;
+  }
+
+  .episode-card-wrapper {
+    width: 90vw;
+  }
+
+  .details-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0px;
+  }
+
+  .episode-card-img {
+    width: 100%;
+  }
+
+  .history-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .history-profile-show-img-div {
+    width: 40%;
+  }
+
+  .profile-episode-name {
+    width: auto;
+  }
+
+  .profile-episode-name-history {
+    width: auto;
+  }
+
+  .profile-cover-div {
+    height: 350px;
+  }
+
+  .profile-cover {
+    height: 350px;
+  }
+
+  .profile-episode-name-history {
+    width: 150px;
+    height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+@media all and (max-width: 665px) {
+  .coverImg-selection-div {
+    height: 75vh;
+  }
+}

@@ -1,0 +1,31 @@
+.footer-wrapper {
+  background: black;
+  height: 100px;
+  padding: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-api {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 1rem;
+}
+
+.copyright {
+  font-size: 1rem;
+}
+
+@media all and (max-width: 600px) {
+  .footer-wrapper {
+    flex-direction: column;
+    height: fit-content;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
