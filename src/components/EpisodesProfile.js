@@ -167,6 +167,17 @@ export default function EpisodesProfile(props) {
             <p className="episode-num-card">
               S{zeroPad(props.season_number, 2)} | E
               {zeroPad(props.episode_number + 1, 2)}
+              {props.curr_season_episodes - (props.episode_number + 1) !== 0 &&
+              props.upToDate !== true ? (
+                <p className="episodes-left">
+                  + {props.curr_season_episodes - (props.episode_number + 1)}{" "}
+                  More
+                </p>
+              ) : (
+                <p className="episodes-left">
+                  {props.upToDate !== true ? "FINALE" : "PREMIER"}
+                </p>
+              )}
             </p>
             <p className="profile-episode-name">
               {props.episode_name !== "false" ? props.episode_name : "TBA"}

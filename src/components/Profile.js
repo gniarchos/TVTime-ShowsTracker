@@ -69,7 +69,7 @@ export default function Profile() {
   const [upToDateFilter, setUpToDateFilter] = React.useState(
     localStorage.getItem("upToDateFilter")
       ? localStorage.getItem("upToDateFilter")
-      : "all"
+      : "soon"
   )
 
   React.useEffect(() => {
@@ -692,20 +692,26 @@ export default function Profile() {
         : userWatchedEpisodes
     )
 
-    const MINS_PER_MONTH = 24 * 30 * 60
-    const MINS_PER_DAY = 24 * 60
+    // const MINS_PER_MONTH = 24 * 30 * 60
+    // const MINS_PER_DAY = 24 * 60
 
+    // let minutes = userTime
+    // const days = Math.floor(minutes / MINS_PER_DAY)
+    // const hours = Math.floor((minutes - days * 1440) / 60)
+    // const months = Math.floor(minutes / MINS_PER_MONTH)
+    // minutes = minutes - months * MINS_PER_MONTH
     let minutes = userTime
-    const days = Math.floor(minutes / MINS_PER_DAY)
-    const hours = Math.floor((minutes - days * 1440) / 60)
-    const months = Math.floor(minutes / MINS_PER_MONTH)
-    minutes = minutes - months * MINS_PER_MONTH
+    const months = Math.floor(minutes / (30 * 24 * 60))
+
+    const days = Math.floor((minutes % (30 * 24 * 60)) / (24 * 60))
+
+    const hours = Math.floor((minutes % (24 * 60)) / 60)
 
     setWatchingStatistic([months, days, hours])
 
     setTimeout(function () {
       setLoading(false)
-    }, 500)
+    }, 900)
   }, [readLocalStorage, userWatchingTime, userTime])
 
   function temporarySaveCoverSelection(image) {
@@ -794,15 +800,21 @@ export default function Profile() {
             <div className="tvtime-container">
               <div className="tvtime-stats">
                 <p className="stats-number">{watchingStatistic[0]}</p>
-                <p className="stats-subtitle">MONTHS</p>
+                <p className="stats-subtitle">
+                  {watchingStatistic[0] === 1 ? "MONTH" : "MONTHS"}
+                </p>
               </div>
               <div className="tvtime-stats">
                 <p className="stats-number">{watchingStatistic[1]}</p>
-                <p className="stats-subtitle">DAYS</p>
+                <p className="stats-subtitle">
+                  {watchingStatistic[1] === 1 ? "DAY" : "DAYS"}
+                </p>
               </div>
               <div className="tvtime-stats">
                 <p className="stats-number">{watchingStatistic[2]}</p>
-                <p className="stats-subtitle">HOURS</p>
+                <p className="stats-subtitle">
+                  {watchingStatistic[2] === 1 ? "HOUR" : "HOURS"}
+                </p>
               </div>
             </div>
           </div>
