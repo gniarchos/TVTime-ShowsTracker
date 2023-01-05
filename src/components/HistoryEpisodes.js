@@ -4,42 +4,47 @@ import { db } from "../services/firebase"
 export default function HistoryEpisodes(props) {
   const zeroPad = (num, places) => String(num).padStart(places, "0")
 
-  async function markAsUnwatched() {
-    await db
-      .collection(`history-${props.currentUserID}`)
-      .orderBy("date_watched", "desc")
+  function markAsUnwatched() {
+    // console.log("Name:", props.history_show_name)
+    // console.log("Episode:", props.history_episode_number + 1)
+    // console.log("Season:", props.history_season_number)
+
+    db.collection(`watchlist-${props.currentUserID}`)
+      .where("show_name", "==", props.history_show_name)
       .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-          const episode = doc.data().episode_number
-          const show = doc.data().show_name
-          const id = doc.id
-          if (show === props.history_show_name) {
-            if (episode >= props.history_episode_number) {
-              console.log("Name:", show)
-              console.log("Episode:", episode + 1)
-              console.log("id", id)
-
-              db.collection(`watchlist-${props.currentUserID}`)
-                .where("show_name", "==", props.history_show_name)
-                .get()
-                .then((querySnapshot) => {
-                  querySnapshot.forEach((doc) => {
-                    doc.ref.update({
-                      episode_number: props.history_episode_number,
-                      season_number: props.history_season_number,
-                    })
-                  })
-                })
-
-              db.collection(`history-${props.currentUserID}`).doc(id).delete()
-            }
-          }
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          doc.ref.update({
+            episode_number: props.history_episode_number,
+            season_number: props.history_season_number,
+          })
         })
       })
-      .then(() => props.resetSeasonData())
-  }
+      .then(() =>
+        db
+          .collection(`history-${props.currentUserID}`)
+          .where("show_name", "==", props.history_show_name)
+          .where("season_number", "==", props.history_season_number)
+          .get()
+          .then((snapshot) => {
+            snapshot.docs.forEach((doc) => {
+              // console.log(doc.data().episode_number)
+              if (doc.data().episode_number >= props.history_episode_number) {
+                // console.log(doc.id)
+                deleteEpisodeFromHistory(doc.id)
+              }
+            })
+          })
+      )
 
+    function deleteEpisodeFromHistory(episode_to_delete) {
+      db.collection(`history-${props.currentUserID}`)
+        .doc(episode_to_delete)
+        .delete()
+
+      //TODO: update tv time and episodes watched
+    }
+  }
   return (
     <div className="history-card-wrapper">
       <div className="history-profile-show-img-div">

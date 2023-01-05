@@ -64,6 +64,7 @@ export default function Profile() {
     localStorage.getItem("historySection")
       ? JSON.parse(localStorage.getItem("historySection"))
       : true
+    // false
   )
   const [upToDateSettings, setUpToDateSettings] = React.useState(false)
   const [upToDateFilter, setUpToDateFilter] = React.useState(
@@ -157,7 +158,7 @@ export default function Profile() {
 
     db.collection(`history-${currentUser.uid}`)
       .orderBy("date_watched", "desc")
-      .limit(20)
+      .limit(50)
       .onSnapshot((snapshot) => {
         setHistoryData(
           snapshot.docs.map((doc) => ({
@@ -480,7 +481,7 @@ export default function Profile() {
       }
     })
 
-  console.log(seasonData)
+  // console.log(seasonData)
 
   const notStartedShows = myShows
     .filter((show) => show.status === "not_started")

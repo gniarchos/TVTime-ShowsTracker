@@ -121,6 +121,9 @@ export default function EpisodesProfile(props) {
       })
   }
 
+  if (props.backdrop_path === "" || props.backdrop_path === undefined) {
+    console.log("Image not loaded")
+  }
   return (
     <div className="episode-card-wrapper">
       <div className="profile-show-img-div">
