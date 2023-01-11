@@ -1,0 +1,122 @@
+.modal {
+  width: 100vw;
+  /* height: 100vh; */
+  position: fixed;
+  top: -50px;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* height: 50vh; */
+  opacity: 0;
+  transition: all 0.5s ease-in;
+}
+
+.modalShow {
+  width: 100vw;
+  /* height: 100vh; */
+  position: fixed;
+  top: 90px;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* height: 50vh; */
+  opacity: 1;
+  transition: all 1s ease-in;
+}
+
+.modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 40vw;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  top: -30%;
+  gap: 15px;
+  /* transform: translateY(-300%); */
+  padding-left: 40px;
+  padding-right: 40px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.modal-icon {
+  width: 10px;
+}
+
+.modal-main {
+  width: 600px;
+}
+
+.show_canceled_name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.modal-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.modal-button {
+  width: 100px;
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: white;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid black;
+  transition: all 0.5s ease;
+  color: black;
+}
+
+.modal-button:hover {
+  background: black;
+  /* border: 2px solid white; */
+  color: white;
+  transition: all 0.5s ease;
+}
+
+@media all and (max-width: 1124px) {
+  .modal-content {
+    width: 60vw;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .modal-content {
+    width: 80vw;
+  }
+}
+
+@media all and (max-width: 566px) {
+  .modal-content {
+    width: 100vw;
+  }
+
+  .modal-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .modal-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

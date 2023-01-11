@@ -13,6 +13,8 @@ import Footer from "./Footer"
 import PuffLoader from "react-spinners/PuffLoader"
 import HistoryEpisodes from "./HistoryEpisodes"
 import { Icon } from "@iconify/react"
+import Modal from "./Modal"
+// import { Set } from "immutable"
 
 export default function Profile() {
   document.title = `TVTime | TV Shows Tracker`
@@ -173,8 +175,8 @@ export default function Profile() {
         )
       })
 
-    myShows.map((myShow, index) => {
-      fetch(
+    myShows.map(async (myShow, index) => {
+      await fetch(
         `https://api.themoviedb.org/3/tv/${myShow.show_id}?api_key=47b60aaf43a6f85780c217395976aee5&language=en-US&include_image_language=en,null&append_to_response=external_ids,videos,aggregate_credits,content_ratings,recommendations,similar,watch/providers,images`
       )
         .then((res) => res.json())
@@ -187,8 +189,8 @@ export default function Profile() {
             return [...prevImages, data.images.backdrops]
           })
         })
-        .then(() => {
-          fetch(
+        .then(async () => {
+          await fetch(
             `https://api.themoviedb.org/3/tv/${myShow.show_id}/season/${myShow.seasonNumber}?api_key=47b60aaf43a6f85780c217395976aee5&language=en-US`
           )
             .then((res) => res.json())
@@ -200,8 +202,6 @@ export default function Profile() {
             })
         })
     })
-
-    //
 
     setLoading(false)
   }, [finished])
@@ -285,14 +285,54 @@ export default function Profile() {
                 return allData.status
               })
               .join("")}
+            temp_total_episodes={localStorage.getItem("total_episodes")}
+            temp_watching_time={localStorage.getItem("watching_time")}
           />
         )
       }
     })
 
+  // console.log(myShows)
+
+  const [canceled_shows, setCanceled_shows] = React.useState(new Set())
+
+  const [show_modal, setShow_modal] = React.useState(false)
+
+  Array.from(canceled_shows).map((show) => {
+    console.log(show)
+  })
+
   const upToDateShows = myShows
     .filter((show) => show.status === "watching")
     .map((show, showIndex) => {
+      fetch(
+        `https://api.themoviedb.org/3/tv/${show.show_id}?api_key=47b60aaf43a6f85780c217395976aee5&language=en-US`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log(data)
+          if (data.status === "Canceled" || data.status === "Ended") {
+            // console.log("found", data.name)
+            // TODO: inform user that x series in his up to date section got canceled
+
+            setShow_modal(true)
+
+            db.collection(`watchlist-${currentUser.uid}`)
+              .where("show_name", "==", data.name)
+              .get()
+              .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                  doc.ref.update({
+                    status: "finished",
+                  })
+                })
+              })
+
+            // setCanceled_shows([...canceled_shows, data.name])
+            setCanceled_shows(canceled_shows.add(data.name))
+          }
+        })
+
       let show_date = new Date(
         seasonData
           .filter((season) => season.show_id === show.show_id)
@@ -737,10 +777,22 @@ export default function Profile() {
     setIsSelectCoverOpen(!isSelectCoverOpen)
   }
 
+  function closeModal() {
+    setShow_modal(false)
+  }
+
   return (
     <div>
       <div className="bg"></div>
       <Navbar isLoggedIn={true} isProfile={true} />
+
+      {/* {show_modal && ( */}
+      <Modal
+        canceled_shows={canceled_shows}
+        state={show_modal}
+        closeModal={closeModal}
+      />
+      {/* )} */}
 
       <div className="profile-cover-div">
         <img

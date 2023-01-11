@@ -481,17 +481,18 @@ export default function ShowOverview() {
               </p>
             )}
           </div>
-          {isShowAddedInWatchList && showUserStatus[0]?.status === "watching" && (
-            <div className="seasons-network-container">
-              <p onClick={stopWatchingShow} className="watchlist-show">
-                <Icon
-                  className="whishlist-icon-add-remove-show"
-                  icon="akar-icons:circle-x-fill"
-                />
-                Stop Watching
-              </p>
-            </div>
-          )}
+          {isShowAddedInWatchList &&
+            showUserStatus[0]?.status === "watching" && (
+              <div className="seasons-network-container">
+                <p onClick={stopWatchingShow} className="watchlist-show">
+                  <Icon
+                    className="whishlist-icon-add-remove-show"
+                    icon="akar-icons:circle-x-fill"
+                  />
+                  Stop Watching
+                </p>
+              </div>
+            )}
 
           {isShowAddedInWatchList && showUserStatus[0]?.status == "stopped" && (
             <div className="seasons-network-container">

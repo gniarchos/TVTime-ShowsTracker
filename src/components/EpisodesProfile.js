@@ -47,6 +47,7 @@ export default function EpisodesProfile(props) {
         date_watched: serverTimestamp(),
         episode_name: props.episode_name[0],
         show_cover: props.backdrop_path[0],
+        episode_time: parseInt(props.episode_time[0]),
       })
 
       db.collection(`watchlist-${props.currentUserID}`)
